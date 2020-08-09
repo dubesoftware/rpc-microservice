@@ -8,7 +8,7 @@ class TestAcmeRPCMicroService:
     def test_square_odd_numbers(self):
         items = list(range(0, 10))
         squared_odd_numbers = acme_rpc_microservice.square_odd_numbers(items)
-        assert squared_odd_numbers == [0, 4, 16, 36, 64]
+        assert squared_odd_numbers == [1, 9, 25, 49, 81]
 
     def test_huffman_encode_strings(self):
         items = ["Acme Bricks", "Contoso.com"]
