@@ -10,8 +10,11 @@ class AcmeRPCMicroservice:
     def square_odd_numbers(self, items):
         """Square each odd number in a given list of integers.
 
-        Keyword arguments:
-        items -- a list of integers
+        Parameters:
+            items (list): -- a list of integers.
+
+        Returns:
+            A list of odd integers squared.
         """
         return []
 
@@ -20,8 +23,12 @@ class AcmeRPCMicroservice:
         """Build a dictionary of strings - the key being the original string, 
         and the value being a (Huffman) encoded version of that string.
 
-        Keyword arguments:
-        items -- a list of strings
+        Parameters:
+            items (list): a list of strings.
+
+        Returns:
+            A dictionary of Huffman encoded strings with original strings as 
+            keys and encoded strings as values.
         """
         return {}       
 
@@ -29,8 +36,11 @@ class AcmeRPCMicroservice:
     def decode_huffman_encoded_string(self, item):
         """Decode a given string previously Huffman encoded.
 
-        Keyword arguments:
-        item -- a string
+        Parameters:
+            item (string): a Huffman encoded string.
+
+        Returns:
+            A decoded string.
         """
         return "" 
 
