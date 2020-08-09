@@ -19,7 +19,7 @@ class TestAcmeRPCMicroService:
                 and encoded_strings["Contoso.com"] == "" \
 
     def test_decode_huffman_encoded_string(self):
-        item = acme_rpc_microservice.huffman_encode_strings(["Hubris Software"])
+        item = acme_rpc_microservice.huffman_encode_strings("Hubris Software")
         decoded_string = acme_rpc_microservice.decode_huffman_encoded_string(
                 item)
         assert decoded_string != ""
