@@ -13,7 +13,7 @@ class AcmeRPCMicroservice:
         Keyword arguments:
         items -- a list of integers
         """
-        return ""
+        return []
 
     @rpc
     def huffman_encode_strings(self, items):
@@ -23,7 +23,7 @@ class AcmeRPCMicroservice:
         Keyword arguments:
         items -- a list of strings
         """
-        return ""       
+        return {}       
 
     @rpc
     def decode_huffman_encoded_string(self, item):
