@@ -1,7 +1,5 @@
-from nameko.rpc import rpc
-
-
 from dahuffman import HuffmanCodec
+from nameko.rpc import rpc
 
 
 class AcmeRPCMicroservice:
