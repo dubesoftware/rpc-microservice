@@ -41,14 +41,15 @@ class AcmeRPCMicroservice:
         return encoded_items
 
     @rpc
-    def decode_huffman_encoded_string(self, item):
+    def decode_huffman_encoded_string(self, item_codec, encoded_item):
         """Decode a given string previously Huffman encoded.
 
         Parameters:
-            item (string): a Huffman encoded string.
+            codec (HuffmanCodec): A Huffman codec of an encoded string.
+            encoded_item (string): a Huffman encoded string.
 
         Returns:
-            A decoded string.
+            A Huffman decoded string.
         """
-        return "" 
+        return item_codec.decode(encoded_item)
 
