@@ -16,7 +16,7 @@ class AcmeRPCMicroservice:
         Returns:
             A list of odd integers squared.
         """
-        return []
+        return [item ** 2 for item in items if item % 2 == 1]
 
     @rpc
     def huffman_encode_strings(self, items):
