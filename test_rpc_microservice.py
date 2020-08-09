@@ -11,7 +11,7 @@ class TestAcmeRPCMicroService:
         assert squared_odd_numbers == [0, 4, 16, 36, 64]
 
     def test_huffman_encode_strings(self):
-        items = ["Acme Bricks", "Contoso.com", "Hubris Software"]
+        items = ["Acme Bricks", "Contoso.com"]
         encoded_strings = acme_rpc_microservice.huffman_encode_strings(items)
         assert "Acme Bricks" in encoded_strings.keys() \
                 and encoded_strings["Acme Bricks"] == "" \
