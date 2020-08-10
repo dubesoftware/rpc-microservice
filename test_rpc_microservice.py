@@ -14,10 +14,10 @@ class TestAcmeRPCMicroService:
     def test_huffman_encode_strings(self):
         items = ["Acme Bricks", "Contoso.com"]
         encoded_strings = acme_rpc_microservice.huffman_encode_strings(items)
-        assert "Acme Bricks" in encoded_strings.keys() \
-                and encoded_strings["Acme Bricks"] == b'\xaczm~\x0e' \
-                and "Contoso.com" in encoded_strings.keys() \
-                and encoded_strings["Contoso.com"] == b'\xa6\xfb\x93l' \
+        assert "Acme Bricks" in encoded_strings.keys()
+        assert encoded_strings["Acme Bricks"] == '¬zm~\x0e'
+        assert "Contoso.com" in encoded_strings.keys()
+        assert encoded_strings["Contoso.com"] == '¦û\x93l'
 
     def test_decode_huffman_encoded_string(self):
         item = "Hubris Software"
@@ -25,7 +25,7 @@ class TestAcmeRPCMicroService:
         encoded_item = item_codec.encode(item)
         decoded_string = acme_rpc_microservice.decode_huffman_encoded_string(
                 item_codec,
-                encoded_item)
+                encoded_item.decode('latin1'))
         assert encoded_item == b".[\x18'/\xbe\x95\x80"
         assert decoded_string == "Hubris Software" 
 
