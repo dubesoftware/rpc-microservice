@@ -49,5 +49,5 @@ class AcmeRPCMicroservice:
         Returns:
             A Huffman decoded string.
         """
-        return item_codec.decode(encoded_item)
+        return item_codec.decode(encoded_item.encode('latin1'))
 
