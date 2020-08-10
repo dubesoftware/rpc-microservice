@@ -1,4 +1,3 @@
-from dahuffman import HuffmanCodec
 from rpc_microservice import AcmeRPCMicroservice
 
 acme_rpc_microservice = AcmeRPCMicroservice()
@@ -20,12 +19,9 @@ class TestAcmeRPCMicroService:
         assert encoded_strings["Contoso.com"] == '¦û\x93l'
 
     def test_decode_huffman_encoded_string(self):
-        item = "Acme Bricks"
-        item_codec = HuffmanCodec.from_data(item)
-        encoded_item = item_codec.encode(item).decode('latin1')
+        item = ["Acme Bricks"]
+        encoded_string = acme_rpc_microservice.huffman_encode_strings(item)
         decoded_string = acme_rpc_microservice.decode_huffman_encoded_string(
-                item_codec,
-                encoded_item)
-        assert encoded_item == '¬zm~\x0e'
+                encoded_string)
         assert decoded_string == "Acme Bricks"
 
