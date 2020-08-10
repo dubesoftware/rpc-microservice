@@ -39,15 +39,17 @@ class AcmeRPCMicroservice:
         return encoded_items
 
     @rpc
-    def decode_huffman_encoded_string(self, item_codec, encoded_item):
+    def decode_huffman_encoded_string(self, encoded_item):
         """Decode a given string previously Huffman encoded and latin1 decoded.
 
         Parameters:
-            codec (HuffmanCodec): A Huffman codec of an encoded string.
-            encoded_item (string): a Huffman encoded string.
+            encoded_item (dictionary): a dictionary with a string key and a 
+            Huffman encoded and latin1 decoded value.
 
         Returns:
             A Huffman decoded string.
         """
-        return item_codec.decode(encoded_item.encode('latin1'))
+        key = next(iter(encoded_item))
+        item_codec = HuffmanCodec.from_data(key)
+        return item_codec.decode(encoded_item[key].encode('latin1'))
 
