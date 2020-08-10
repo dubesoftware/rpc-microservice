@@ -35,7 +35,7 @@ class AcmeRPCMicroservice:
         for item in items:
             item_codec = HuffmanCodec.from_data(item)
             encoded_item = item_codec.encode(item)
-            encoded_items.update({item: encoded_item})
+            encoded_items.update({item: encoded_item.decode('latin1')})
         return encoded_items
 
     @rpc
