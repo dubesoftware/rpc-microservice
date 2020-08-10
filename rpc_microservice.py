@@ -29,7 +29,7 @@ class AcmeRPCMicroservice:
 
         Returns:
             A dictionary of Huffman encoded strings with original strings as 
-            keys and encoded strings as values.
+            keys and encoded strings as latin1 decoded values.
         """
         encoded_items = {}
         for item in items:
@@ -40,7 +40,7 @@ class AcmeRPCMicroservice:
 
     @rpc
     def decode_huffman_encoded_string(self, item_codec, encoded_item):
-        """Decode a given string previously Huffman encoded.
+        """Decode a given string previously Huffman encoded and latin1 decoded.
 
         Parameters:
             codec (HuffmanCodec): A Huffman codec of an encoded string.
