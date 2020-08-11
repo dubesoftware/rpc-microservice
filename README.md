@@ -10,7 +10,7 @@ decode_huffman_encoded_string:	- decodes a given string previously Huffman encod
 ```
 
 ## Thoughts
-The task provides good exposure to the microservice ecosystem and affords the engineer and opportunity to experience and attempt to solve real-world messaging challenges in that space. For the uninitiated to RPC messaging, this provides great opportunities to research solutions to some of the most common pain points, such as handling character encoding.
+The task provides good exposure to the microservice ecosystem and affords the engineer an opportunity to experience and attempt to solve real-world messaging challenges in that space. For the uninitiated to RPC messaging, this provides great opportunities to research solutions to some of the most common pain points, such as handling character encoding.
 
 ## Pros (and cons) of technologies used
 ### [*Nameko*](https://nameko.readthedocs.io/en/stable/), [*RabbitMQ*](https://www.rabbitmq.com/) and [*Docker*](https://www.docker.com/).:
