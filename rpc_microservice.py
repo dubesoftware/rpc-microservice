@@ -1,3 +1,4 @@
+import json
 from dahuffman import HuffmanCodec
 from nameko.rpc import rpc
 
@@ -15,9 +16,9 @@ class AcmeRPCMicroservice:
             items (list): -- a list of integers.
 
         Returns:
-            A list of odd integers squared.
+            A list of odd integers squared as JSON.
         """
-        return [item ** 2 for item in items if item % 2 == 1]
+        return json.dumps([item ** 2 for item in items if item % 2 == 1])
 
     @rpc
     def huffman_encode_strings(self, items):
@@ -29,14 +30,14 @@ class AcmeRPCMicroservice:
 
         Returns:
             A dictionary of Huffman encoded strings with original strings as 
-            keys and encoded strings as latin1 decoded values.
+            keys and encoded strings as latin1 decoded values as JSON.
         """
         encoded_items = {}
         for item in items:
             item_codec = HuffmanCodec.from_data(item)
             encoded_item = item_codec.encode(item)
             encoded_items.update({item: encoded_item.decode('latin1')})
-        return encoded_items
+        return json.dumps(encoded_items)
 
     @rpc
     def decode_huffman_encoded_string(self, encoded_item):
@@ -47,9 +48,10 @@ class AcmeRPCMicroservice:
             Huffman encoded and latin1 decoded value.
 
         Returns:
-            A Huffman decoded string.
+            A Huffman decoded string as JSON.
         """
+        encoded_item = json.loads(encoded_item)
         key = next(iter(encoded_item))
         item_codec = HuffmanCodec.from_data(key)
-        return item_codec.decode(encoded_item[key].encode('latin1'))
+        return json.dumps(item_codec.decode(encoded_item[key].encode('latin1')))
 
