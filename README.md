@@ -25,6 +25,8 @@ Having never implemented an RPC service before, I approached this task as a rese
 
 Design-wise, I decided to keep the code as modular as possible. This meant defining a single class in a single module with no auxiliary dependency modules and implementing code reuse via object orientation and separation of concerns. This also helped with unit testing. I decided to forego integration testing as I felt that it would introduce cognitive load that would detract from the core requirements within the scope of the project. I kept the code as Pythonic as possible, with adherence to PEP 8 guidelines as much as possible. This helps readability and documentation.
 
+With regards to data formats, JSON is used to send data to and from the service. This is a widely adopted standard for communication between disparate systems and also allows other clients which do not implement the RPC protocol to consume the service. A testing strategy would be to use [*cURL*](https://curl.haxx.se/) to send requests to the containerised service from a terminal.
+
 Please note that the LOC weigh in at ~54, of which ~30 are docstrings. This leaves the actual executable source within the recommended 30 LOC at around ~24. Method chaining delivers a benefit here, although often, especially when debugging, it ought to be used with caution.
 
 Additionally, I kept each method modular and free of side effects by avoiding altering state. Finally, no exception handling is implemented. I believe that this would be for the client of the service to implement, unless the service itself were talking to other services - in which case exception handling and logging could be implemented. I actively worked to stay within the scope of the project and avoided scope creep.
