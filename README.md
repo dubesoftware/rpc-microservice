@@ -8,6 +8,7 @@ square_odd_numbers: 		- squares each odd number in a given list of integers,
 huffman_encode_strings: 	- builds a dictionary of strings - the key being the original string, and the value being a (Huffman) encoded version of that string, and
 decode_huffman_encoded_string:	- decodes a given string previously Huffman encoded and latin1 decoded.
 ```
+These methods return data in the JSON format.
 
 ## Thoughts
 The task provides good exposure to the microservice ecosystem and affords the engineer an opportunity to experience and attempt to solve real-world messaging challenges in that space. For the uninitiated to RPC messaging, this provides great opportunities to research solutions to some of the most common pain points, such as handling character encoding.
